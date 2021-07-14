@@ -1,1 +1,41 @@
 // Specific CSS for your home-page
+.btn-home {
+  color: #fff;
+  background-color: #F4C2AE;
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+}
+.btn-home:hover {
+  color: #fff;
+  background-color: #e7997a;
+  border-radius: 10px;
+  border: none;
+  padding: 5px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #F4C2AE;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+h4 {
+    color: #000000;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+
+}

@@ -3,10 +3,12 @@
     <%=image_tag "logo.png", style:'height:320px; width:auto;' %>
     <h1 class="text-center mt-2">CIDADÃOS</h1>
   </div>
-  <div class="p-2 align-self-center">
-    <h3>Entrar no seu perfil ou cadastrar um novo</h3>
-  </div>
-  <div class="p-2 align-self-center">
-    Flex item 3
-  </div>
+  <%= link_to new_registration_path(resource_name) %>
+    <div class="p-2 align-self-center btn-home btn-block">
+      <h4 class="text-center">Novo cidadão</h3>
+    </div>
+  <%= link_to new_registration_path(resource_name) %>
+    <div class="p-2 align-self-center btn-home btn-block">
+      <h4 class="text-center">Meu cadastro</h3>
+    </div>
 </div>
