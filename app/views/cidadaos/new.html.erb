@@ -2,21 +2,31 @@
   <div class="justify-content-center p-5 w-75">
     <h2>Preencha seus dados</h2>
     <h5>Todos os campos abaixo são obrigatórios.</h5>
+    <%= simple_form_for @cidadao do |f| %>
+      <div class="form-inputs">
+        <%= f.input :nome_completo,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "nome_completo" } %>
+        <%= f.input :cpf,
+                    required: false,
+                    input_html: { autocomplete: "cpf" } %>
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :data_nascimento,
+                    required: false,
+                    input_html: { autocomplete: "data_nascimento" } %>
+        <%= f.input :telefone,
+                    required: false,
+                    input_html: { autocomplete: "telefone" } %>
+        <%= f.input :foto, as: :file %>
+      </div>
 
-  <div class="container mt-3">
-  <%= form_for(@cidadao) do |f| %>
-    <%= f.label :nome_completo %>
-    <%= f.text_field :nome_completo %>
-    <%= f.label :cpf %>
-    <%= f.number_field :cpf %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <%= f.label :data_nascimento %>
-    <%= f.date_field :data_nascimento %>
-    <%= f.label :telefone %>
-    <%= f.number_field :telefone %>
-    <%= f.label :status %>
-    <%= f.text_field :status %>
-    <%= f.submit %>
-  <% end %>
+      <div class="form-actions">
+        <%= f.button :submit, "Adicionar novo munícipe", class:"btn-home" %>
+      </div>
+    <% end %>
+
 </div>
