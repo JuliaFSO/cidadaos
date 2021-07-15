@@ -3,25 +3,14 @@
 </div>
 
 <div class="container my-5">
-  <div class="row">
-    <div class="col">
-      <div class="cards">
-        <% @cidadao.each do |municipe| %>
-          <div class="">
-            <%= cidadao.nome_completo %>
-            <%= cidadao.nome_completo %>
-            <%= cidadao.nome_completo %>
-            <%= cidadao.nome_completo %>
-            <%= cidadao.nome_completo %>
-            <%= cidadao.nome_completo %>
-
-        <% end %>
-          </div>
-
-        <% end %>
-      </div>
+  <% @cidadao.each do |municipe| %>
+    <div class="">
+      <%= cidadao.nome_completo %>
+      <%= cidadao.cpf %>
+      <%= cidadao.email %>
+      <%= cidadao.data_nascimento %>
+      <%= cidadao.telefone %>
+      <%= cidadao.foto %>
+  <% end %>
     </div>
-
-  </div>
-</div>
 </div>
