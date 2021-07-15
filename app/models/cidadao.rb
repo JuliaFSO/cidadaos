@@ -1,5 +1,5 @@
 class Cidadao < ApplicationRecord
-  # has_one_attached :foto
+  has_one_attached :foto
   # validates :nome_completo, :cpf, :email, :data_nascimento, :telefone, :status, presence: true
   # validates :cpf, length: { minimum: 11 }
   # validates :email, format: { with: /\A.*@.*\.com\z/ }

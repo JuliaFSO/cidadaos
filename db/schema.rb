@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_000104) do
+ActiveRecord::Schema.define(version: 2021_07_15_154417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 2021_07_15_000104) do
 
   create_table "cidadaos", force: :cascade do |t|
     t.string "nome_completo"
-    t.integer "cpf"
+    t.string "cpf"
     t.string "email"
     t.date "data_nascimento"
-    t.integer "telefone"
+    t.string "telefone"
     t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
