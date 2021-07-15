@@ -15,6 +15,7 @@ class CidadaosController < ApplicationController
   def create
     @cidadao = Cidadao.new(cidadao_params)
     @cidadao.save
+    redirect_to cidadao_path(@cidadao)
   end
 
   def edit
