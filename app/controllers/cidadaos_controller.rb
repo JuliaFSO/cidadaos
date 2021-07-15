@@ -1,5 +1,5 @@
 class CidadaosController < ApplicationController
-	  before_action :set_cidadao, only: [:show, :edit, :update]
+	  before_action :set_cidadao, only: [:create, :show, :edit, :update]
 
   def index
     @cidadaos = Cidadao.all
@@ -15,15 +15,13 @@ class CidadaosController < ApplicationController
   def create
     @cidadao = Cidadao.new(cidadao_params)
     @cidadao.save
-    # redirect_to cidadao_path(@cidadao)
   end
 
   def edit
   end
 
   def update
-    @cidadao.update(cidadao_params)
-    redirect_to cidadao_path(@cidadao)  
+
   end
 
   private
