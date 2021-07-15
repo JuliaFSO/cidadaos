@@ -1,11 +1,11 @@
 class CidadaosController < ApplicationController
-	  before_action :set_cidadao
+	  before_action :set_cidadao, only: [:show, :edit, :update]
 
   def index
     @cidadaos = Cidadao.all
   end
 
-  def show
+  def show 
   end
 
   def new
@@ -30,6 +30,6 @@ class CidadaosController < ApplicationController
   end
 
   def cidadao_params
-    params.require(:cidadao).permit(:nome_completo, :cpf, :email, :data_nascimento, :telefone, :foto, :status)
+    params.require(:cidadao).permit(:nome_completo, :cpf, :email, :data_nascimento, :telefone, :photo, :status)
   end
 end
