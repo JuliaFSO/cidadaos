@@ -10,7 +10,7 @@
       <li><%= @cidadao.email %></li>
       <li><%= @cidadao.data_nascimento %></li>
       <li><%= @cidadao.telefone %></li>
-      <li><%= @cidadao.foto %></li>
+      <li><%= cl_image_tag @cidadao.foto.key %></li>
     </ul>
     </div>
 </div>
