@@ -1,16 +1,16 @@
-<div class="container text-center">
+<div class="container text-center mt-3">
   <h1>Munícipe</h1>
 </div>
 
 <div class="container my-5">
-  <% @cidadao.each do |municipe| %>
     <div class="">
-      <%= cidadao.nome_completo %>
-      <%= cidadao.cpf %>
-      <%= cidadao.email %>
-      <%= cidadao.data_nascimento %>
-      <%= cidadao.telefone %>
-      <%= cidadao.foto %>
-  <% end %>
+    <ul>
+      <li><%= @cidadao.nome_completo %>
+      <li><%= @cidadao.cpf %></li>
+      <li><%= @cidadao.email %></li>
+      <li><%= @cidadao.data_nascimento %></li>
+      <li><%= @cidadao.telefone %></li>
+      <li><%= cl_image_tag @cidadao.foto.key %></li>
+    </ul>
     </div>
 </div>
