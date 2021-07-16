@@ -5,23 +5,37 @@
     <%= simple_form_for @cidadao do |f| %>
       <div class="form-inputs">
         <%= f.input :nome_completo,
-                    required: false,
+                    label: "Nome Completo",
+                    required: true,
                     autofocus: true,
                     input_html: { autocomplete: "nome_completo" } %>
-        <%= f.input :cpf,
-                    required: false,
+        <%= f.telephone_field :cpf,
+                    class: "form-number",
+                    label: "CPF",
+                    placeholder: "555.555.555-55",
+                    required: true,
                     input_html: { autocomplete: "cpf" } %>
-        <%= f.input :email,
-                    required: false,
+        <%= f.date_field :data_nascimento,
+                    class: "form-number",
+                    label: "Data de Nascimento",  
+                    required: true,
+                    input_html: { autocomplete: "data_nascimento" } %>
+        <%= f.email_field :email,
+                    label: "E-mail",
+                    class: "form-control",
+                    required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email" } %>
-        <%= f.input :data_nascimento,
-                    required: false,
-                    input_html: { autocomplete: "data_nascimento" } %>
-        <%= f.input :telefone,
-                    required: false,
+        <%= f.telephone_field :telefone,
+                    class: "form-number",
+                    placeholder: "+55-11-95555-5555",
+                    label: "Telefone",        
+                    required: true,
                     input_html: { autocomplete: "telefone" } %>
-        <%= f.input :foto, as: :file %>
+        <%= f.input :foto, as: :file, 
+                    input_html: { class: 'd-none' }, 
+                    label_html: { class: 'form-foto'},
+                    label: 'Escolher foto' %>
       </div>
 
       <div class="form-actions">
