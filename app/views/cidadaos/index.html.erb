@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-around align-items-center mb-3">
     <div class="p-2"><%=image_tag "logo.png", style:'height:150px; width:auto;' %></div>
     <div class="p-2"><h1 class="text-center mt-2">MUNÍCIPES</h1></div>
-    <div class="p-2"><a class="btn btn-home" href="cidadaos/new" role="button">Novo Munícipe</a></div>
+    <div class="p-2"><a class="btn btn-home" href="new" role="button">Novo Munícipe</a></div>
   </div>
 
   <table class="table table-hover">
@@ -13,20 +13,21 @@
         <th scope="col">CPF</th>
         <th scope="col">Telefone</th>
         <th scope="col">E-mail</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% @cidadaos.each do |cidadao| %>
         <tr>
-          <% link_to edit_cidadao_path(cidadao) %>
             <th scope="row"></th>
             <td><%= cidadao.nome_completo %></td>
             <td><%= cidadao.cpf %></td>
             <td><%= cidadao.telefone %></td>
             <td><%= cidadao.email %></th>
-            <td><%= cidadao.email %></th>
+            <td><%= link_to 'Edit', edit_cidadao_path(cidadao) %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
+
