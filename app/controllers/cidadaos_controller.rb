@@ -5,7 +5,7 @@ class CidadaosController < ApplicationController
     @cidadaos = Cidadao.all
   end
 
-  def show 
+  def show
   end
 
   def new
@@ -15,10 +15,11 @@ class CidadaosController < ApplicationController
   def create
     @cidadao = Cidadao.new(cidadao_params)
     @cidadao.save
-    redirect_to cidadao_path(@cidadao)
+    redirect_to cidadao_path(@cidadao), notice: 'Munícipe adicionado com sucesso.'
   end
 
   def edit
+
   end
 
   def update
