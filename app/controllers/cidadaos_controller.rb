@@ -6,6 +6,7 @@ class CidadaosController < ApplicationController
   end
 
   def show
+    @endereco = Endereco.new
   end
 
   def new
@@ -15,20 +16,18 @@ class CidadaosController < ApplicationController
   def create
     @cidadao = Cidadao.new(cidadao_params)
     if @cidadao.save
-      redirect_to cidadao_path(@cidadao), notice: 'Munícipe adicionado com sucesso.'
+      redirect_to new_cidadao_endereco_path(@cidadao)
     else
       render :new
     end
-  
   end
 
   def edit
-
   end
 
   def update
     if @cidadao.update(cidadao_params)
-      redirect_to cidadao_path(@cidadao), notice: 'Munícipe atualizado com sucesso.'
+      redirect_to cidadao_path(@cidadao)
     else
       render :edit
     end

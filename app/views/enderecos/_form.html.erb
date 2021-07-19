@@ -1,0 +1,35 @@
+   <%= simple_form_for [@cidadao, @endereco] do |f| %>
+        <div class="form-inputs">
+          <%= f.input :cep,
+                      placeholder: "09555-555",
+                      class: "form-completo",
+                      label: "CEP",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "cep" } %>
+          <%= f.input :logradouro,
+                      class: "form-completo",
+                      label: "Logradouro",
+                      placeholder: "Rua ",
+                      required: true,
+                      input_html: { autocomplete: "logradouro" } %>
+          <%= f.input :bairro ,
+                      class: "form-pequeno",
+                      label: "Bairro",
+                      required: true,
+                      input_html: { autocomplete: "bairro" } %>
+          <%= f.input :cidade,
+                      label: "Cidade",
+                      placeholder: "",
+                      class: "form-completo",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "cidade" } %>
+          <%= f.input :uf,
+                      label: "UF",
+                      class: "form-pequeno",
+                      placeholder: "",
+                      required: true,
+                      input_html: { autocomplete: "uf" } %>
+        </div>
+    <% end %>
