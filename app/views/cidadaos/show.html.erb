@@ -3,14 +3,19 @@
 </div>
 
 <div class="container my-5">
-    <div class="">
-    <ul>
-      <li><%= @cidadao.nome_completo %>
-      <li><%= @cidadao.cpf %></li>
-      <li><%= @cidadao.email %></li>
-      <li><%= @cidadao.data_nascimento %></li>
-      <li><%= @cidadao.telefone %></li>
-      <li><%= cl_image_tag @cidadao.foto.key %></li>
-    </ul>
+  <div class="d-flex flex-row mb-3">
+    <div class="p-2">
+      <%= cl_image_tag @cidadao.foto.key %>
     </div>
+    <div class="p-2 d-flex mb-3 justify-self-center">
+      <div class="p-2"><h5>Nome Completo</h5><%= @cidadao.nome_completo %></div>
+      <div class="p-2"><h5>CPF</h5><%= @cidadao.cpf %></div>
+      <div class="p-2"><h5>Data de Nascimento</h5><%= @cidadao.data_nascimento %></div>
+      <div class="p-2"><h5>E-mail</h5><%= @cidadao.email %></div>
+      <div class="p-2"><h5>Telefone</h5><%= @cidadao.telefone %></div>
+    </div>
+  </div>
 </div>
+
+
+
