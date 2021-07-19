@@ -19,7 +19,7 @@ class CidadaosController < ApplicationController
     else
       render :new
     end
-    
+  
   end
 
   def edit
@@ -27,6 +27,11 @@ class CidadaosController < ApplicationController
   end
 
   def update
+    if @cidadao.update(cidadao_params)
+      redirect_to cidadao_path(@cidadao), notice: 'Munícipe atualizado com sucesso.'
+    else
+      render :edit
+    end
   end
 
   private
