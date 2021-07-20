@@ -27,8 +27,7 @@
                     input_html: { autocomplete: "email" } %>
         <%= f.input :telefone,
                     label: "Telefone",
-                    class: "form-pequeno",
-                    placeholder: "+55-11-95555-5555",
+                    placeholder: "(00) 0000-0000",
                     required: true,
                     input_html: { autocomplete: "telefone" } %>
         <%= f.input :foto, as: :file, 
@@ -36,6 +35,49 @@
                     label_html: { class: 'form-foto'},
                     label: 'Escolher foto' %>
       </div>
+
+      <%= f.simple_fields_for :endereco do |p| %>
+        <div class="form-inputs">
+          <%= p.input :cep,
+                      placeholder: "09555-555",
+                      class: "form-completo",
+                      label: "CEP",
+                      id: "cep",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "cep" } %>
+          <%= p.input :logradouro,
+                      class: "form-completo",
+                      label: "Logradouro",
+                      placeholder: "Rua ",
+                      required: true,
+                      input_html: { autocomplete: "logradouro" } %>
+          <%= p.input :complemento,
+                      class: "form-pequeno",
+                      label: "Complemento",
+                      placeholder: "Número, Apto., Bloco",
+                      required: true,
+                      input_html: { autocomplete: "complemento" } %>                      
+          <%= p.input :bairro ,
+                      class: "form-pequeno",
+                      label: "Bairro",
+                      required: true,
+                      input_html: { autocomplete: "bairro" } %>
+          <%= p.input :cidade,
+                      label: "Cidade",
+                      placeholder: "",
+                      class: "form-completo",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "cidade" } %>
+          <%= p.input :uf,
+                      label: "UF",
+                      class: "form-pequeno",
+                      placeholder: "",
+                      required: true,
+                      input_html: { autocomplete: "uf" } %>
+        </div>
+      <% end %>
  
       <div class="form-actions">
         <%= f.button :submit, "Adicionar novo munícipe", class:"btn-home" %>

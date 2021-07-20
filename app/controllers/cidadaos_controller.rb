@@ -6,17 +6,18 @@ class CidadaosController < ApplicationController
   end
 
   def show
-    @endereco = Endereco.new
+    @endereco = @cidadao.endereco
   end
 
   def new
     @cidadao = Cidadao.new
+    @cidadao.build_endereco
   end
 
   def create
     @cidadao = Cidadao.new(cidadao_params)
-    if @cidadao.save
-      redirect_to new_cidadao_endereco_path(@cidadao)
+     if @cidadao.save
+      redirect_to cidadao_path(@cidadao)
     else
       render :new
     end
@@ -27,7 +28,7 @@ class CidadaosController < ApplicationController
 
   def update
     if @cidadao.update(cidadao_params)
-      redirect_to cidadao_path(@cidadao)
+      redirect_to edit_cidadao_endereco_path(@cidadao)
     else
       render :edit
     end

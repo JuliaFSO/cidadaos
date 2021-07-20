@@ -1,9 +1,10 @@
-   <%= simple_form_for [@cidadao, @endereco] do |f| %>
+   <%= simple_form_for [@endereco] do |f| %>
         <div class="form-inputs">
           <%= f.input :cep,
                       placeholder: "09555-555",
                       class: "form-completo",
                       label: "CEP",
+                      id: "cep",
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "cep" } %>
@@ -13,6 +14,12 @@
                       placeholder: "Rua ",
                       required: true,
                       input_html: { autocomplete: "logradouro" } %>
+          <%= f.input :complemento,
+                      class: "form-pequeno",
+                      label: "Complemento",
+                      placeholder: "Número, Apto., Bloco",
+                      required: true,
+                      input_html: { autocomplete: "complemento" } %>                      
           <%= f.input :bairro ,
                       class: "form-pequeno",
                       label: "Bairro",
@@ -32,4 +39,7 @@
                       required: true,
                       input_html: { autocomplete: "uf" } %>
         </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Adicionar endereço", class:"btn-home" %>
+      </div>
     <% end %>

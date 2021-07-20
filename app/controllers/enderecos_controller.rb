@@ -1,4 +1,5 @@
 class EnderecosController < ApplicationController
+
   def new
     @cidadao = Cidadao.find(params[:cidadao_id])
     @endereco = Endereco.new
@@ -16,9 +17,27 @@ class EnderecosController < ApplicationController
     end
   end
 
+  def edit
+    @endereco = Endereco.find(params[:id])
+  end
+
+  def update
+    @endereco = Endereco.find(params[:id])
+
+    if @endereco.update(endereco_params)
+      redirect_to cidadao_path(@endereco.cidadao)
+    else
+      render :edit
+    end
+  end
+
   private
 
-  def enderecos_params
+  def set_endereco
+    @endereco = Endereco.find(params[:id])
+  end
+
+  def endereco_params
     params.require(:endereco).permit(:cep, :logradouro, :bairro, :cidade, :uf)
   end
 end
