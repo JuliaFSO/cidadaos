@@ -29,3 +29,8 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+
+en:
+  date:
+    formats:
+      default: "%d-%m-%Y"

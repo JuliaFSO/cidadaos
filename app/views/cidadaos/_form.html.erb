@@ -35,9 +35,10 @@
                     label_html: { class: 'form-foto'},
                     label: 'Escolher foto' %>
       </div>
-
+      
       <%= f.simple_fields_for :endereco do |p| %>
         <div class="form-inputs">
+        <h4>Endereço</h4>
           <%= p.input :cep,
                       placeholder: "09555-555",
                       class: "form-completo",
