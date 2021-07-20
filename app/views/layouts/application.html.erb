@@ -13,5 +13,16 @@
 
   <body>
     <%= yield %>
+    
+    <% if notice %>
+      <div class="alert alert-warning" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger" role="alert">
+        <%= alert %>
+      </div>
+    <% end %>
   </body>
 </html>
