@@ -8,11 +8,10 @@
                     autofocus: true,
                     input_html: { autocomplete: "nome_completo" } %>
         <%= f.input :cpf,
-                    class: "form-pequeno",
                     label: "CPF",
                     placeholder: "555.555.555-55",
                     required: true,
-                    input_html: { autocomplete: "cpf" } %>
+                    input_html: { autocomplete: "cpf", class:'cpf-masked' } %>
         <%= f.input :data_nascimento, as: :string ,
                     class: "form-pequeno",
                     label: "Data de Nascimento",
@@ -26,16 +25,13 @@
                     autofocus: true,
                     input_html: { autocomplete: "email" } %>
         <%= f.input :telefone,
-                    label: "Telefone",
                     placeholder: "(00) 0000-0000",
                     required: true,
-                    input_html: { autocomplete: "telefone" } %>
+                    input_html: { autocomplete: "telefone", class:'telefone-masked'  } %>
         <%= f.input :foto, as: :file, 
-                    input_html: { class: 'd-none' }, 
-                    label_html: { class: 'form-foto'},
                     label: 'Escolher foto' %>
       </div>
-      
+
       <%= f.simple_fields_for :endereco do |p| %>
         <div class="form-inputs">
         <h4>Endereço</h4>
@@ -71,7 +67,33 @@
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "cidade" } %>
-          <%= p.input :uf,
+          <%= p.input :uf, collection: [["AC"],
+                                        ["AL"],
+                                        ["AP"],
+                                        ["AM"],
+                                        ["BA"],
+                                        ["CE"],
+                                        ["DF"],
+                                        ["ES"],
+                                        ["GO"],
+                                        ["MA"],
+                                        ["MT"],
+                                        ["MS"],
+                                        ["MG"],
+                                        ["PA"],
+                                        ["PB"],
+                                        ["PR"],
+                                        ["PE"],
+                                        ["PI"],
+                                        ["RJ"],
+                                        ["RN"],
+                                        ["RS"],
+                                        ["RO"],
+                                        ["RR"],
+                                        ["SC"],
+                                        ["SP"],
+                                        ["SE"],
+                                        ["TO"]],
                       label: "UF",
                       class: "form-pequeno",
                       placeholder: "",

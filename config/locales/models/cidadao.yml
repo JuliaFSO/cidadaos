@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      cidadao: 
+        one: cidadao
+        other: cidadaos
+    attributes:
+      cidadao:
+        telefone: telefone somente números
+        email: Email teste
