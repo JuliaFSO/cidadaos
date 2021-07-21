@@ -7,27 +7,28 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-poster_image_url = 'https://unsplash.com/s/photos/portrait'
+# Cidadao.destroy_all
+# Endereco.destroy_all
 
-destroy.all
-
-
-puts 'Criando 100 munícipes...'
-100.times do
-  municipe = Cidadao.new(
+puts 'Criando 5 munícipes...'
+5.times do
+  file = URI.open('https://source.unsplash.com/featured/?perfil')
+  cidadao = Cidadao.create!(
     nome_completo: Faker::Name.name,
-    cpf: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    email:    Faker::Company.name,
-    data_nascimento: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    telefone:    Faker::Company.name,
-    foto: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    status:    Faker::Company.name,
-    cep: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    logradouro: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    bairro:    Faker::Company.name,
-    cidade: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    uf: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    cpf: Faker::Number.number(digits: 11),
+    email: Faker::Internet.email,
+    data_nascimento: Faker::Date.birthday(min_age: 18, max_age: 65),
+    telefone: "#{Faker::PhoneNumber.area_code}9#{Faker::PhoneNumber.subscriber_number}#{Faker::PhoneNumber.subscriber_number}",
+    status: 'Ativo'
   )
-  municipe.save!
+  cidadao.foto.attach(io: file, filename: 'photo.png', content_type: 'image/png')
+
+  cidadao.endereco.create!(
+    cep: Faker::Address.postcode,
+    logradouro: "#{Faker::Address.street_suffix} #{Faker::Address.street_name}",
+    bairro: Faker::Address.city,
+    cidade: Faker::Address.city,
+    uf: Faker::Address.state_abbr
+  )
+
 end
-puts 'Pronto!'
