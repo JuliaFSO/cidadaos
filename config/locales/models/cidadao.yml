@@ -6,5 +6,8 @@ pt-BR:
         other: cidadaos
     attributes:
       cidadao:
-        telefone: telefone somente números
-        email: Email teste
+        nome_completo: Nome completo
+        cpf: CPF
+        data_nascimento: Data de Nascimento
+        email: Email
+        telefone: Telefone

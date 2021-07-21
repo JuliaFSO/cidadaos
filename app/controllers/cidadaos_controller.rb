@@ -41,6 +41,6 @@ class CidadaosController < ApplicationController
   end
 
   def cidadao_params
-    params.require(:cidadao).permit(:nome_completo, :cpf, :email, :data_nascimento, :telefone, :foto, :status, endereco_attributes: [:cep, :logradouro, :bairro, :cidade, :uf])
+    params.require(:cidadao).permit(:id, :nome_completo, :cpf, :email, :data_nascimento, :telefone, :foto, :status, endereco_attributes: [:id, :cep, :logradouro, :bairro, :cidade, :uf])
   end
 end
