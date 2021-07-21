@@ -30,19 +30,20 @@
                     input_html: { autocomplete: "telefone", class:'telefone-masked'  } %>
         <%= f.input :foto, as: :file, 
                     label: 'Escolher foto' %>
+        <%= f.input :status, as: :select,
+                    include_blank: false,
+                    collection: [['A', 'Ativo'], ['I', 'Inativo']] %>
       </div>
 
       <%= f.simple_fields_for :endereco do |p| %>
-        <div class="form-inputs">
+       <div class="form-inputs">
         <h4>Endereço</h4>
           <%= p.input :cep,
                       placeholder: "09555-555",
-                      class: "form-completo",
                       label: "CEP",
-                      id: "cep",
                       required: true,
                       autofocus: true,
-                      input_html: { autocomplete: "cep" } %>
+                      input_html: { autocomplete: "cep", class:'cep-masked' } %>
           <%= p.input :logradouro,
                       class: "form-completo",
                       label: "Logradouro",
@@ -94,7 +95,7 @@
                                         ["SP"],
                                         ["SE"],
                                         ["TO"]],
-                      label: "UF",
+                      label_method: :first, value_method: :first,
                       class: "form-pequeno",
                       placeholder: "",
                       required: true,

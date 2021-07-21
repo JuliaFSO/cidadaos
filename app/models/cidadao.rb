@@ -6,7 +6,7 @@ class Cidadao < ApplicationRecord
   validates :nome_completo, :cpf, :email, :data_nascimento, :telefone, :status, presence: true
   validates :cpf, length: { minimum: 11 }
   validates :email, format: { with: /\A.*@.*\.com\z/ }
-  validates :telefone, length: { minimum: 13 }
+  validates :telefone, length: { minimum: 11 }
   
   validates :cpf, :email, uniqueness: true
 end

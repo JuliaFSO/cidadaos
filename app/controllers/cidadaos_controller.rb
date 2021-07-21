@@ -16,7 +16,7 @@ class CidadaosController < ApplicationController
 
   def create
     @cidadao = Cidadao.new(cidadao_params)
-     if @cidadao.save
+    if @cidadao.save
       redirect_to cidadao_path(@cidadao)
     else
       render :new
@@ -41,6 +41,6 @@ class CidadaosController < ApplicationController
   end
 
   def cidadao_params
-    params.require(:cidadao).permit(:nome_completo, :cpf, :email, :data_nascimento, :telefone, :foto, :status)
+    params.require(:cidadao).permit(:nome_completo, :cpf, :email, :data_nascimento, :telefone, :foto, :status, endereco_attributes: [:cep, :logradouro, :bairro, :cidade, :uf])
   end
 end
