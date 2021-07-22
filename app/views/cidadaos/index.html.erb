@@ -22,7 +22,7 @@
               <th scope="row"></th>
                 <td><%= cidadao.nome_completo %></td>
                 <td><%= cidadao.cpf %></td>
-                <td><%= cidadao.data_nascimento %></td>
+                <td><%= localize(cidadao.data_nascimento, format: :default) %></td>
                 <td><%= cidadao.status %></th>
                 <td></td>
           </tr>

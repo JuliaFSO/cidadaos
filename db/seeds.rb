@@ -7,15 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-Cidadao.destroy_all
-Endereco.destroy_all
+# Cidadao.destroy_all
+# Endereco.destroy_all
 
 puts 'Criando 20 munícipes...'
 20.times do
   file = URI.open('https://source.unsplash.com/featured/?portrait')
   cidadao = Cidadao.create!(
     nome_completo: Faker::Name.name,
-    cpf: Faker::Number.number(digits: 11),
+    cpf: Faker::CPF.number,
     email: Faker::Internet.email,
     data_nascimento: Faker::Date.birthday(min_age: 18, max_age: 65),
     telefone: "#{Faker::PhoneNumber.area_code}9#{Faker::PhoneNumber.subscriber_number}#{Faker::PhoneNumber.subscriber_number}",
@@ -25,7 +25,7 @@ puts 'Criando 20 munícipes...'
 
   Endereco.create!(
     cidadao_id: cidadao.id,
-    cep: Faker::Address.postcode,
+    cep: Faker::Address.postcode_by_state,
     logradouro: "#{Faker::Address.street_suffix} #{Faker::Address.street_name}, #{Faker::Address.building_number}",
     complemento: Faker::Address.secondary_address,
     bairro: Faker::Address.city,

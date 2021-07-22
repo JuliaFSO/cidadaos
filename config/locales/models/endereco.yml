@@ -7,7 +7,7 @@ pt-BR:
     attributes:
       endereco:
         cep: CEP
+        uf: UF
         logradouro: Endereço
         bairro: Bairro
         cidade: Cidade
-        uf: UF
