@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-# Cidadao.destroy_all
-# Endereco.destroy_all
+Cidadao.destroy_all
+Endereco.destroy_all
 
-puts 'Criando 5 munícipes...'
-5.times do
+puts 'Criando 20 munícipes...'
+20.times do
   file = URI.open('https://source.unsplash.com/featured/?portrait')
   cidadao = Cidadao.create!(
     nome_completo: Faker::Name.name,
@@ -24,12 +24,13 @@ puts 'Criando 5 munícipes...'
   cidadao.foto.attach(io: file, filename: 'foto.jpg', content_type: 'image/jpg')
 
   Endereco.create!(
-    cidadao_id = cidadao.id,
+    cidadao_id: cidadao.id,
     cep: Faker::Address.postcode,
     logradouro: "#{Faker::Address.street_suffix} #{Faker::Address.street_name}",
     bairro: Faker::Address.city,
     cidade: Faker::Address.city,
     uf: Faker::Address.state_abbr
   )
-
 end
+
+puts '20 munícipes criados...'
