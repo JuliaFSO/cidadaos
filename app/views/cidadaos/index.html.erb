@@ -18,14 +18,14 @@
     </thead>
     <tbody>
       <% @cidadaos.each do |cidadao| %>
-        <tr>
-            <th scope="row"></th>
-            <td><%= cidadao.nome_completo %></td>
-            <td><%= cidadao.cpf %></td>
-            <td><%= cidadao.data_nascimento %></td>
-            <td><%= cidadao.status %></th>
-            <td><%= link_to 'Editar', edit_cidadao_path(cidadao) %></td>
-        </tr>
+          <tr onclick="location.href='<%= cidadao_path(cidadao) %>'">
+              <th scope="row"></th>
+                <td><%= cidadao.nome_completo %></td>
+                <td><%= cidadao.cpf %></td>
+                <td><%= cidadao.data_nascimento %></td>
+                <td><%= cidadao.status %></th>
+                <td></td>
+          </tr>
       <% end %>
     </tbody>
   </table>
