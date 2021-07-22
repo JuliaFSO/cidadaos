@@ -12,7 +12,7 @@ require 'faker'
 
 puts 'Criando 5 munícipes...'
 5.times do
-  file = URI.open('https://source.unsplash.com/featured/?perfil')
+  file = URI.open('https://source.unsplash.com/featured/?portrait')
   cidadao = Cidadao.create!(
     nome_completo: Faker::Name.name,
     cpf: Faker::Number.number(digits: 11),
@@ -21,9 +21,10 @@ puts 'Criando 5 munícipes...'
     telefone: "#{Faker::PhoneNumber.area_code}9#{Faker::PhoneNumber.subscriber_number}#{Faker::PhoneNumber.subscriber_number}",
     status: 'Ativo'
   )
-  cidadao.foto.attach(io: file, filename: 'photo.png', content_type: 'image/png')
+  cidadao.foto.attach(io: file, filename: 'foto.jpg', content_type: 'image/jpg')
 
-  cidadao.endereco.create!(
+  Endereco.create!(
+    cidadao_id = cidadao.id,
     cep: Faker::Address.postcode,
     logradouro: "#{Faker::Address.street_suffix} #{Faker::Address.street_name}",
     bairro: Faker::Address.city,
