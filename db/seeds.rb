@@ -26,7 +26,8 @@ puts 'Criando 20 munícipes...'
   Endereco.create!(
     cidadao_id: cidadao.id,
     cep: Faker::Address.postcode,
-    logradouro: "#{Faker::Address.street_suffix} #{Faker::Address.street_name}",
+    logradouro: "#{Faker::Address.street_suffix} #{Faker::Address.street_name}, #{Faker::Address.building_number}",
+    complemento: Faker::Address.secondary_address,
     bairro: Faker::Address.city,
     cidade: Faker::Address.city,
     uf: Faker::Address.state_abbr

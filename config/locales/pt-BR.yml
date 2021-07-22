@@ -582,7 +582,7 @@ pt-BR:
         - "#{seniority} #{position} de #{field}"
         - "#{position} de #{field}"
         - "#{position} #{seniority}"
-
+    
     name:
       male_first_name: ["Alessandro","Alexandre","Antônio","Arthur","Benício","Benjamin","Bernardo","Breno","Bryan",
                         "Caio","Carlos","Cauã","César","Daniel","Danilo","Davi","Deneval","Djalma","Eduardo","Elísio",
