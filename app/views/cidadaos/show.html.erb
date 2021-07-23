@@ -1,7 +1,7 @@
 <div class="container text-center mt-3">
   <div class="d-flex flex-row justify-content-around mb-3">
     <div class="p-2 flex-grow-1"><h1>MUNÍCIPE</h1></div>
-    <div class="p-2"><a class="btn btn-home" href="/cidadaos/" role="button">Voltar para Munícipes</a></div>
+    <div class="p-2"><a class="btn btn-home" href="/cidadaos/" role="button">Listar Munícipes</a></div>
   </div>
 </div>
 
@@ -14,12 +14,12 @@
       <h4>Dados pessoais</h4>
       <div class="row row-cols-3">
         <div class="col"><h5>Nome Completo</h5><p><%= @cidadao.nome_completo %></p></div>
-        <div class="col"><h5>CPF</h5><p><%= t(@cidadao.cpf, format: :default) %></p></div>
+        <div class="col"><h5>CPF</h5><p><%= @cidadao.cpf %></p></div>
         <div class="col"><h5>Status</h5><p><%= @cidadao.status? ? 'Ativo' : 'Inativo' %></p></div>
       </div>
       <div class="row row-cols-3">
         <div class="col"><h5>Data de Nascimento</h5><p><%= l(@cidadao.data_nascimento, format: :default) %></p></div>
-        <div class="col"><h5>Telefone</h5><p><%= t(@cidadao.telefone, format: :default) %></p></div>
+        <div class="col"><h5>Telefone</h5><p><%= @cidadao.telefone %></p></div>
         <div class="col"><h5>E-mail</h5><p><%= @cidadao.email %></p></div>
       </div>
       <hr>
@@ -32,7 +32,7 @@
       <div class="row">
         <div class="col-sm"><h5>Cidade</h5><p><%= @cidadao.endereco.cidade %></p></div>
         <div class="col-sm"><h5>UF</h5><p><%= @cidadao.endereco.uf %></p></div>
-        <div class="col-sm"><h5>Cep</h5><p><%= t(@cidadao.endereco.cep, format: :default) %></p></div>
+        <div class="col-sm"><h5>Cep</h5><p><%= @cidadao.endereco.cep %></p></div>
       </div>
       <a class="btn btn-home" href='<%= edit_cidadao_path(@cidadao) %>' role="button">Editar Munícipe</a>
     </div>

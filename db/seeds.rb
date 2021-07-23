@@ -10,22 +10,22 @@ require 'faker'
 # Cidadao.destroy_all
 # Endereco.destroy_all
 
-puts 'Criando 20 munícipes...'
-20.times do
+puts 'Criando 2 munícipes...'
+2.times do
   file = URI.open('https://source.unsplash.com/featured/?portrait')
   cidadao = Cidadao.create!(
     nome_completo: Faker::Name.name,
-    cpf: Faker::CPF.number,
+    cpf: "#{Faker::Number.number(digits: 3)}.#{Faker::Number.number(digits: 3)}.#{Faker::Number.number(digits: 3)}-#{Faker::Number.number(digits: 2)}",
     email: Faker::Internet.email,
     data_nascimento: Faker::Date.birthday(min_age: 18, max_age: 65),
-    telefone: "#{Faker::PhoneNumber.area_code}9#{Faker::PhoneNumber.subscriber_number}#{Faker::PhoneNumber.subscriber_number}",
+    telefone: "(#{Faker::PhoneNumber.area_code}) 9#{Faker::PhoneNumber.subscriber_number}-#{Faker::PhoneNumber.subscriber_number}",
     status: 'Ativo'
   )
   cidadao.foto.attach(io: file, filename: 'foto.jpg', content_type: 'image/jpg')
 
   Endereco.create!(
     cidadao_id: cidadao.id,
-    cep: Faker::Address.postcode_by_state,
+    cep: "09#{Faker::Number.number(digits: 3)}-#{Faker::Number.number(digits: 3)}",
     logradouro: "#{Faker::Address.street_suffix} #{Faker::Address.street_name}, #{Faker::Address.building_number}",
     complemento: Faker::Address.secondary_address,
     bairro: Faker::Address.city,
@@ -34,4 +34,4 @@ puts 'Criando 20 munícipes...'
   )
 end
 
-puts '20 munícipes criados...'
+puts '2 munícipes criados...'
