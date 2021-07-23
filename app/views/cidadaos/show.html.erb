@@ -1,13 +1,11 @@
-<div class="container text-center mt-3">
-  <div class="d-flex flex-row justify-content-around mb-3">
-    <div class="p-2 flex-grow-1"><h1>MUNÍCIPE</h1></div>
-    <div class="p-2"><a class="btn btn-home" href="/cidadaos/" role="button">Listar Munícipes</a></div>
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <div class="pt-2 mr-3"><%=image_tag "logo.png", style:'height:150px; width:auto;' %></div>
+    <div class="p-2 ml-3"><h1 class="text-center mt-2">MUNÍCIPE</h1></div>
   </div>
-</div>
 
-<div class="container my-5">
+<div class="container my-4">
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3 text-center">
       <%= cl_image_tag @cidadao.foto.key, style:'height: 150px; width: 150px; border-radius: 25px;'%>
     </div>
     <div class="col-sm-9">
@@ -34,7 +32,10 @@
         <div class="col-sm"><h5>UF</h5><p><%= @cidadao.endereco.uf %></p></div>
         <div class="col-sm"><h5>Cep</h5><p><%= @cidadao.endereco.cep %></p></div>
       </div>
-      <a class="btn btn-home" href='<%= edit_cidadao_path(@cidadao) %>' role="button">Editar Munícipe</a>
+  <div class="d-flex flex-row justify-content-between mt-3">
+      <a class="btn btn-home m-3" href='<%= edit_cidadao_path(@cidadao) %>' role="button">Editar Munícipe</a>
+      <a class="btn btn-home m-3" href="/cidadaos/" role="button">Listar Munícipes</a>
+  </div>
     </div>
   </div>
 </div>

@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-# Cidadao.destroy_all
-# Endereco.destroy_all
+Cidadao.destroy_all
+Endereco.destroy_all
 
-puts 'Criando 2 munícipes...'
-2.times do
+puts 'Criando 10 munícipes...'
+10.times do
   file = URI.open('https://source.unsplash.com/featured/?portrait')
   cidadao = Cidadao.create!(
     nome_completo: Faker::Name.name,
@@ -34,4 +34,4 @@ puts 'Criando 2 munícipes...'
   )
 end
 
-puts '2 munícipes criados...'
+puts '10 munícipes criados...'
