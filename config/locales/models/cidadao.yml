@@ -7,7 +7,7 @@ pt-BR:
     attributes:
       cidadao:
         nome_completo: Nome completo
-        cpf: CPF
-        data_nascimento: Data de Nascimento
+        cpf: ["###.###.###-##"]
+        data_nascimento: ["%d/%m/%Y"]
         email: Email
-        telefone: Telefone
+        telefone: ["+55 (##) 9####-####"]

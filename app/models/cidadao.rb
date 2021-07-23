@@ -3,9 +3,10 @@ class Cidadao < ApplicationRecord
   has_one :endereco, dependent: :destroy
   accepts_nested_attributes_for :endereco
   
-  validates :nome_completo, :cpf, :email, :data_nascimento, :telefone, :status, presence: true
+  validates :nome_completo, :cpf, :email, :data_nascimento, :telefone, presence: true
+  validates :status, inclusion: { in: [ true, false ] }
   validates :cpf, length: { minimum: 11 }
-  # validates :email, format: { with: /\A.*@.*\.com\z/ }
+  validates_format_of :email, with: Devise.email_regexp
   validates :telefone, length: { minimum: 11 }
   
   validates :cpf, :email, uniqueness: true

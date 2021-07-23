@@ -6,7 +6,7 @@ pt-BR:
         other: enderecos
     attributes:
       endereco:
-        cep: CEP
+        cep: ["###.###.###-##"]
         uf: UF
         logradouro: Endereço
         bairro: Bairro
