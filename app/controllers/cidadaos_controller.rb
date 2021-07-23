@@ -2,7 +2,7 @@ class CidadaosController < ApplicationController
 	  before_action :set_cidadao, only: [:show, :edit, :update]
 
   def index
-    @cidadaos = Cidadao.all
+    @cidadaos = Cidadao.order('nome_completo').all
   end
 
   def show
