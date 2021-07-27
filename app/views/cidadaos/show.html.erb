@@ -12,12 +12,12 @@
       <h4>Dados pessoais</h4>
       <div class="row row-cols-3">
         <div class="col"><h5>Nome Completo</h5><p><%= @cidadao.nome_completo %></p></div>
-        <div class="col"><h5>CPF</h5><p><%= @cidadao.cpf %></p></div>
+        <div class="col"><h5>CPF</h5><p><%= (CPF.new(@cidadao.cpf).formatted) %></p></div>
         <div class="col"><h5>Status</h5><p><%= @cidadao.status? ? 'Ativo' : 'Inativo' %></p></div>
       </div>
       <div class="row row-cols-3">
         <div class="col"><h5>Data de Nascimento</h5><p><%= l(@cidadao.data_nascimento, format: :default) %></p></div>
-        <div class="col"><h5>Telefone</h5><p><%= @cidadao.telefone %></p></div>
+        <div class="col"><h5>Telefone</h5><p><%= Phonelib.parse(@cidadao.telefone) %></p></div>
         <div class="col"><h5>E-mail</h5><p><%= @cidadao.email %></p></div>
       </div>
       <hr>

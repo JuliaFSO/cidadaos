@@ -10,4 +10,9 @@ class Cidadao < ApplicationRecord
   validates :telefone, length: { minimum: 11 }
   
   validates :cpf, :email, uniqueness: true
+  before_save :format_phone
+
+  def format_phone
+    self.telefone = PhoneLib.parse(telefone)
+  end
 end

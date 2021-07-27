@@ -21,7 +21,7 @@
           <tr onclick="location.href='<%= cidadao_path(cidadao) %>'">
               <th scope="row"></th>
                 <td><%= cidadao.nome_completo %></td>
-                <td><%= cidadao.cpf %></td>
+                <td><%= (CPF.new(cidadao.cpf).formatted) %></td>
                 <td><%= l(cidadao.data_nascimento, format: :default) %></td>
                 <td><%= cidadao.status? ? 'Ativo' : 'Inativo' %></th>
                 <td></td>
