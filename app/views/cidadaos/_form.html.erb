@@ -1,50 +1,77 @@
     <%= simple_form_for @cidadao, url: url_path do |f| %>
-      <div class="form-inputs">
-        <%= f.input :nome_completo,
-                    placeholder: "Nome completo",
-                    class: "form-completo",
-                    label: "Nome completo",
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "nome_completo" } %>
-        <%= f.input :cpf,
-                    label: "CPF",
-                    placeholder: "555.555.555-55",
-                    required: true,
-                    input_html: { autocomplete: "cpf" } %>
-        <%= f.input :data_nascimento, as: :string ,
-                    class: "form-pequeno",
-                    label: "Data de Nascimento",
-                    required: true,
-                    input_html: { type: 'date', autocomplete: "data_nascimento" } %>
-        <%= f.input :email,
-                    label: "E-mail",
-                    placeholder: "E-mail",
-                    class: "form-completo",
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" } %>
-        <%= f.input :telefone,
-                    label: "Telefone",
-                    placeholder: "(00) 0000-0000",
-                    required: true,
-                    input_html: { autocomplete: "telefone", class:'telefone-masked'  } %>
-        <%= f.input :foto, as: :file, 
-                    label: 'Escolher foto' %>
-        <%= f.input :status, as: :radio_buttons,
-                    include_blank: false,
-                    collection: [['Ativo', true], ['Inativo', false]] %>
+    <h4>Dados pessoais</h4>
+      <div class="row">
+        <div class="col-12">
+          <%= f.input :nome_completo,
+                      placeholder: "Nome completo",
+                      class: "form-completo",
+                      label: "Nome completo",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "nome_completo" } %>
+        </div>
+        <div class="col-4">
+          <%= f.input :data_nascimento, as: :string ,
+                      class: "form-pequeno",
+                      label: "Data de Nascimento",
+                      required: true,
+                      input_html: { type: 'date', autocomplete: "data_nascimento" } %>
+        </div>
+        <div class="col-4">
+          <%= f.input :cpf,
+            label: "CPF",
+            placeholder: "555.555.555-55",
+            required: true,
+            input_html: { autocomplete: "cpf" } %>
+        </div>
+        <div class="col-4">
+          <%= f.input :cns,
+            label: "CNS",
+            placeholder: "555 5555 5555 5555",
+            required: true,
+            input_html: { autocomplete: "cns" } %>
+        </div>
+        <div class="col-6">
+          <%= f.input :email,
+                      label: "E-mail",
+                      placeholder: "E-mail",
+                      class: "form-completo",
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+        </div>
+        <div class="col-6">
+          <%= f.input :telefone,
+            label: "Telefone",
+            placeholder: "(00) 0000-0000",
+            required: true,
+            input_html: { autocomplete: "telefone", class:'telefone-masked'  } %>
+        </div>
+        <div class="col-6">
+          <%= f.input :foto, as: :file, 
+            label: 'Escolher foto' %>
+        </div>
+        <div class="col-6">
+          <%= f.input :status, as: :radio_buttons,
+            include_blank: false,
+            collection: [['Ativo', true], ['Inativo', false]] %>
+        </div>
       </div>
-
       <%= f.fields_for :endereco do |ff| %>
-       <div class="form-inputs">
-        <h4>Endereço</h4>
+      <h4>Endereço</h4>
+      <div class="row g-3">
+        <div class="col-md-2">
           <%= ff.input :cep,
                       placeholder: "09555-555",
                       label: "CEP",
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "cep", class:'cep-masked cep' } %>
+        </div>
+        <div class="col-md-10">
+
+        </div>
+        <div class="col-8">
           <%= ff.input :logradouro,
                       id: "logradouro",
                       class: "form-completo",
@@ -52,19 +79,25 @@
                       placeholder: "Rua, Av., Trav.",
                       required: true,
                       input_html: { autocomplete: "logradouro" } %>
+        </div>
+        <div class="col-4">
           <%= ff.input :complemento,
                       id: "complemento",
                       class: "form-pequeno",
                       label: "Complemento",
                       placeholder: "Apto., Bloco",
                       required: true,
-                      input_html: { autocomplete: "complemento" } %>                      
+                      input_html: { autocomplete: "complemento" } %>        
+        </div>
+        <div class="col-4">
           <%= ff.input :bairro ,
                       id: "bairro",
                       class: "form-pequeno",
                       label: "Bairro",
                       required: true,
                       input_html: { autocomplete: "bairro" } %>
+        </div>
+        <div class="col-6">
           <%= ff.input :cidade,
                       id: "cidade",
                       label: "Cidade",
@@ -73,6 +106,8 @@
                       required: true,
                       autofocus: true,
                       input_html: { autocomplete: "cidade" } %>
+        </div>
+        <div class="col-md-2">
           <%= ff.input :uf, collection: [["AC"],
                                         ["AL"],
                                         ["AP"],
@@ -106,6 +141,7 @@
                       required: true,
                       input_html: { autocomplete: "uf" } %>
         </div>
+      </div>
       <% end %>
  
       <div class="form-actions">

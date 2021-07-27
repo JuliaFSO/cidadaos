@@ -11,6 +11,7 @@
         <th scope="col"></th>
         <th scope="col">Nome Completo</th>
         <th scope="col">CPF</th>
+        <th scope="col">CNS</th>
         <th scope="col">Data de Nascimento</th>
         <th scope="col">Status</th>
         <th></th>
@@ -22,6 +23,7 @@
               <th scope="row"></th>
                 <td><%= cidadao.nome_completo %></td>
                 <td><%= (CPF.new(cidadao.cpf).formatted) %></td>
+                <td><%= (cidadao.cns) %></td>
                 <td><%= l(cidadao.data_nascimento, format: :default) %></td>
                 <td><%= cidadao.status? ? 'Ativo' : 'Inativo' %></th>
                 <td></td>

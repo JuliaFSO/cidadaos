@@ -16,6 +16,7 @@ puts 'Criando 10 munícipes...'
   cidadao = Cidadao.create!(
     nome_completo: Faker::Name.name,
     cpf: "#{Faker::Number.number(digits: 3)}.#{Faker::Number.number(digits: 3)}.#{Faker::Number.number(digits: 3)}-#{Faker::Number.number(digits: 2)}",
+    cns: "#{Faker::Number.number(digits: 3)} #{Faker::Number.number(digits: 4)} #{Faker::Number.number(digits: 4)} #{Faker::Number.number(digits: 4)}",
     email: Faker::Internet.email,
     data_nascimento: Faker::Date.birthday(min_age: 18, max_age: 65),
     telefone: "(#{Faker::PhoneNumber.area_code}) 9#{Faker::PhoneNumber.subscriber_number}-#{Faker::PhoneNumber.subscriber_number}",

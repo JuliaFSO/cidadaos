@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_23_151046) do
+ActiveRecord::Schema.define(version: 2021_07_27_112104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_07_23_151046) do
     t.boolean "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "cns"
     t.index ["cpf"], name: "index_cidadaos_on_cpf", unique: true
     t.index ["telefone"], name: "index_cidadaos_on_telefone", unique: true
   end
