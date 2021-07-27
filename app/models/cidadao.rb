@@ -14,6 +14,6 @@ class Cidadao < ApplicationRecord
   before_save :format_phone
 
   def format_phone
-    self.telefone = PhoneLib.parse(telefone)
+    self.telefone = PhoneLib.parse(telefone).national
   end
 end

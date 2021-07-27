@@ -8,9 +8,9 @@ pt-BR:
     cidadao:
       show:
         nome_completo: Nome completo
-        cpf:
-          formats:
-            - "###.###.###-##"
-          data_nascimento: ["%d/%m/%Y"]
-          email: Email
-          telefone: ["+55 (##) 9####-####"]
+        data_nascimento: Data de Nascimento
+        cpf: CPF
+        cns: CNS
+        email: Email
+        telefone: Telefone
+
