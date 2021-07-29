@@ -1,4 +1,33 @@
 pt-BR:
+  form:
+    add: "Adicionar munícipe"
+    title:
+      personal: "Dados pessoais"
+      address: "Endereço"
+  new:
+    title: "MUNÍCIPES"
+  index:
+    add_new: "Novo Munícipe"
+  edit:
+    title: "Editar dados do munícipe"
+    show: "Munícipe"
+  show:
+    title: "MUNÍCIPE"
+    nome_completo: Nome completo
+    data_nascimento: Data de Nascimento
+    cpf: CPF
+    cns: CNS
+    email: E-mail
+    telefone: Telefone
+    status: Status
+    cep: CEP
+    logradouro: Logradouro
+    complemento: Complemento
+    uf: UF
+    bairro: Bairro
+    cidade: Cidade
+    edit: "Editar Munícipe"
+    list: "Listar Munícipes"
   activerecord:
     errors:
       messages:
