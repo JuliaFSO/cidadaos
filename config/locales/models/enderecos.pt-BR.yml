@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      endereco: 
+        one: endereco
+        other: enderecos
+    attributes:
+      endereco:
+        cep: 
+        logradouro: Logradouro
+        complemento: Complemento
+        uf: UF
+        bairro: Bairro
+        cidade: Cidade
