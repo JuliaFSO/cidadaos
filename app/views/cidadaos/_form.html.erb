@@ -19,15 +19,17 @@
         <%= f.input :cpf,
           placeholder: "555.555.555-55",
           required: true,
+          size: 11,
           input_html: { autocomplete: "cpf" } %>
       </div>
       <div class="col-4">
         <%= f.input :cns,
           placeholder: "555 5555 5555 5555",
           required: true,
-          input_html: { autocomplete: "cns" } %>
+          size: 15,
+          input_html: { autocomplete: "cns"} %>
       </div>
-      <div class="col-6">
+      <div class="col-7">
         <%= f.input :email,
                     placeholder: "E-mail",
                     class: "form-completo",
@@ -35,7 +37,9 @@
                     autofocus: true,
                     input_html: { autocomplete: "email" } %>
       </div>
-      <div class="col-6">
+      <div class="col-1">
+      </div>
+      <div class="col-4">
         <%= f.input :telefone,
           placeholder: "(00) 0000-0000",
           required: true,
