@@ -12,7 +12,6 @@ Endereco.destroy_all
 
 puts 'Criando 10 munícipes...'
 10.times do
-  file = URI.open('https://source.unsplash.com/featured/?portrait')
   cidadao = Cidadao.create!(
     nome_completo: Faker::Name.name,
     cpf: "#{Faker::Number.number(digits: 3)}.#{Faker::Number.number(digits: 3)}.#{Faker::Number.number(digits: 3)}-#{Faker::Number.number(digits: 2)}",
@@ -22,8 +21,9 @@ puts 'Criando 10 munícipes...'
     telefone: "(#{Faker::PhoneNumber.area_code}) 9#{Faker::PhoneNumber.subscriber_number}-#{Faker::PhoneNumber.subscriber_number}",
     status: 'Ativo'
   )
-  cidadao.foto.attach(io: file, filename: 'foto.jpg', content_type: 'image/jpg')
-
+  cidadao.foto.attach(io: File.open(Rails.root.join('app/assets/images/avatar.png')),
+                  filename: 'avatar.png')
+ 
   Endereco.create!(
     cidadao_id: cidadao.id,
     cep: "09#{Faker::Number.number(digits: 3)}-#{Faker::Number.number(digits: 3)}",
