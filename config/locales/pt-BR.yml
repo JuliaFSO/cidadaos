@@ -7,7 +7,8 @@ pt-BR:
   new:
     title: "MUNÍCIPES"
   index:
-    add_new: "Novo Munícipe"
+    add_new: "NOVO MUNÍCIPE"
+    search: "PROCURAR MUNÍCIPE"
   edit:
     title: "Editar dados do munícipe"
     show: "Munícipe"
@@ -26,8 +27,8 @@ pt-BR:
     uf: UF
     bairro: Bairro
     cidade: Cidade
-    edit: "Editar Munícipe"
-    list: "Listar Munícipes"
+    edit: "EDITAR MUNÍCIPE"
+    list: "LISTAR MUNÍCIPES"
   activerecord:
     errors:
       messages:

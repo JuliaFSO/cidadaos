@@ -4,7 +4,22 @@
     <div class="p-2"><h1 class="text-center mt-2"><%= t('new.title') %></h1></div>
     <div class="p-2"><a class="btn btn-home" href='<%= cidadao_path(@cidadao) %>' role="button"><%= t('edit.show') %></a></div>
   </div>
-  <div class="justify-content-center p-5 w-75">
-    <h2><%= t('edit.title') %></h2>
-    <%= render 'form', url_path: cidadao_path %>
+  <div class="card">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= cidadao_path(@cidadao) %>"><%= t('show.title') %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="true" href="<%= edit_cidadao_path(@cidadao) %>"><%= t('show.edit') %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cidadaos/"><%= t('show.list') %></a>
+        </li>
+      </ul>
+    </div>
+    <div class="justify-content-center p-5 w-75">
+      <%= render 'form', url_path: cidadao_path %>
+    </div>
+  </div>
 </div>
