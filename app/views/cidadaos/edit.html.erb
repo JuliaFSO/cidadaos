@@ -2,9 +2,9 @@
   <div class="d-flex justify-content-around align-items-center mb-3">
     <div class="p-2"><%=image_tag "logo.png", style:'height:150px; width:auto;' %></div>
     <div class="p-2"><h1 class="text-center mt-2"><%= t('new.title') %></h1></div>
-    <div class="p-2"><a class="btn btn-home" href='<%= cidadao_path(@cidadao) %>' role="button"><%= t('edit.show') %></a></div>
+    <div class="p-2"></div>
   </div>
-  <div class="card">
+  <div class="card mb-3">
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
@@ -18,8 +18,10 @@
         </li>
       </ul>
     </div>
-    <div class="justify-content-center p-5 w-75">
-      <%= render 'form', url_path: cidadao_path %>
+    <div class="card-body">
+      <div class="justify-content-center px-5 w-80">
+        <%= render 'form', url_path: cidadao_path %>
+      </div>
     </div>
   </div>
 </div>
