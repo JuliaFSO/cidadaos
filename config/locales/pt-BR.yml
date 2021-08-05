@@ -4,6 +4,9 @@ pt-BR:
     title:
       personal: "Dados pessoais"
       address: "Endereço"
+  messages:
+    created: 'Incluido com sucesso!'
+    updated: 'Atualizado com sucesso!'
   new:
     title: "MUNÍCIPES"
   index:

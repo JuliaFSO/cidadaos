@@ -16,11 +16,12 @@ class CidadaosController < ApplicationController
 
   def create
     @cidadao = Cidadao.new(cidadao_params)
-   
-    if @cidadao.save
-      redirect_to cidadao_path(@cidadao)
-    else
-      render :new
+    respond_to do |format|
+      if @cidadao.save
+        format.html { redirect_to cidadao_path(@cidadao), notice: t('messages.created') }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -28,10 +29,12 @@ class CidadaosController < ApplicationController
   end
 
   def update
-    if @cidadao.update(cidadao_params)
-      redirect_to cidadao_path(@cidadao)
-    else
-      render :edit
+    respond_to do |format|
+      if @cidadao.update(cidadao_params)
+        format.html { redirect_to cidadao_path(@cidadao), notice: t('messages.updated') }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
     end
   end
 
