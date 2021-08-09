@@ -16,7 +16,7 @@ class CidadaosController < ApplicationController
 
   def create
     @cidadao = Cidadao.new(cidadao_params)
-    respond_to do |format|
+     respond_to do |format|
       if @cidadao.save
         format.html { redirect_to cidadao_path(@cidadao), notice: t('messages.created') }
       else
@@ -45,7 +45,7 @@ class CidadaosController < ApplicationController
   end
 
   def cidadao_params
-    params.require(:cidadao).permit(:id, :nome_completo, :cpf, :cns,:email, :data_nascimento, :telefone, :foto, :status, endereco_attributes: [:id, :cep, :logradouro, :complemento, :bairro, :cidade, :uf])
+    params.require(:cidadao).permit(:nome_completo, :cpf, :cns,:email, :data_nascimento, :telefone, :foto, :status, endereco_attributes: [:id, :cep, :logradouro, :complemento, :bairro, :cidade, :uf])
   end
 
 end

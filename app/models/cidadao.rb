@@ -3,13 +3,13 @@ class Cidadao < ApplicationRecord
   has_one :endereco, dependent: :destroy
   accepts_nested_attributes_for :endereco
   
-  validates :nome_completo, :cpf, :cns, :email, :data_nascimento, :telefone, :status, presence: true
+  validates :nome_completo, :cpf, :cns, :email, :data_nascimento, :telefone, :foto, :status, presence: true
   validates_format_of :nome_completo, with: /([\w\-\']{2,})([\s]+)([\w\-\']{2,})/, message: :invalid
   validates :status, inclusion: { in: [ true, false ] }
-  validates :cpf, length: { minimum: 11 }
-  validates :cns, length: { minimum: 15 }
+  validates :cpf, length: { is: 11 }
+  validates :cns, length: { is: 15 }
   validates_format_of :email, with: Devise.email_regexp
-  validates :telefone, length: { minimum: 11 }
+  validates :telefone, length: { is: 11 }
   validates :data_nascimento, inclusion: { in: 100.year.ago..1.day.ago, message: :out_of_range }
   
   validates :cpf, :email, :cns, uniqueness: true
@@ -23,9 +23,9 @@ class Cidadao < ApplicationRecord
       cidadao.cpf
     }
 
-  return if CPF.valid?(self.cpf) and !cpfs.include? self.cpf
+    return if CPF.valid?(self.cpf) and !cpfs.include? self.cpf
 
-  errors.add(:cpf, :invalid)
+    errors.add(:cpf, :invalid)
   end
 
   def valid_cns
