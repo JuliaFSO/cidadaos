@@ -5,7 +5,7 @@ FactoryBot.define do
     cns { FFaker.numerify('###############') }
     data_nascimento { FFaker::Time.date }
     email { Faker::Internet.email }
-    telefone { FFaker::PhoneNumberBR.phone_number }
+    telefone { FFaker.numerify('###########') }
     foto { Rack::Test::UploadedFile.new(File.join("#{Rails.root}/app/assets/images/avatar.png")) }
     status { %w[A B].sample }
     association :endereco, factory: :endereco, strategy: :build

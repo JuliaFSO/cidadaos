@@ -48,7 +48,7 @@ RSpec.describe CidadaosController do
         post :create, params: { cidadao: cidadao_params }
 
         expect(response).to have_http_status(302)
-        expect(response).to redirect_to cidadao_path
+        expect(response).to redirect_to cidadao_path(:cidadao)
         expect(flash[:notice]).to eq 'Incluido com sucesso!'
       end
     end
@@ -56,7 +56,7 @@ RSpec.describe CidadaosController do
     context 'When cidadao have invalid params' do
       it 'validate create object' do
         expect{
-          post :create, params: { cidadao: { nome_completo: 'Julia Fachin', data_nascimento: Date.tomorrow} }
+          post :create, params: { cidadao: cidadao_params }
         }.to_not change(Cidadao, :count)
       end
     end
