@@ -15,13 +15,11 @@ RSpec.describe Cidadao, type: :model do
     end
 
     it "is not valid without a cpf" do
-      cidadao.cpf = '11111111111'
-      expect(cidadao.cpf).to_not be_valid
-      expect(cidadao.cpf).to be_valid
+      expect(cidadao.cpf.length).to be (11)
     end
 
-    it 'validate nested attrs' do
-      accepts_nested_attributes_for(:endereco)
+    describe "Associations" do
+      it { is_expected.to have_one(:endereco) }
     end
   end
 
