@@ -14,15 +14,14 @@ RSpec.describe Cidadao, type: :model do
       expect(cidadao).to be_invalid
     end
 
-    it 'validate if cpf is valid and unique' do
+    it "is not valid without a cpf" do
       cidadao.cpf = '11111111111'
-
-      cidadao.valid?
-      expect(cidadao.errors[:cpf]).to contain_exactly 'cpf precisa ser válido'
+      expect(cidadao.cpf).to_not be_valid
+      expect(cidadao.cpf).to be_valid
     end
 
-    describe 'validate nested attrs' do
-      it { is_expected.to accept_nested_attributes_for(:endereco) }
+    it 'validate nested attrs' do
+      accepts_nested_attributes_for(:endereco)
     end
   end
 

@@ -3,7 +3,7 @@ FactoryBot.define do
     nome_completo { FFaker::Name.name }
     cpf  { FFaker::IdentificationBR.cpf }
     cns { FFaker.numerify('###############') }
-    data_nascimento { FFaker::Time.date }
+    data_nascimento { (30.year.ago.to_date..Date.today).to_a.sample }
     email { Faker::Internet.email }
     telefone { FFaker.numerify('###########') }
     foto { Rack::Test::UploadedFile.new(File.join("#{Rails.root}/app/assets/images/avatar.png")) }

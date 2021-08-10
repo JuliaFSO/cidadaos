@@ -41,14 +41,14 @@ RSpec.describe CidadaosController do
       it 'validate create object' do
         expect{
           post :create, params: { cidadao: cidadao_params }
-        }.to change(Cidadao, :count).by(1)
+            }.to change(Cidadao, :count).by(1)
       end
 
       it 'validate status' do
         post :create, params: { cidadao: cidadao_params }
 
         expect(response).to have_http_status(302)
-        expect(response).to redirect_to cidadao_path(:cidadao)
+        expect(response).to redirect_to(cidadao_path(assigns[:cidadao]))
         expect(flash[:notice]).to eq 'Incluido com sucesso!'
       end
     end
@@ -56,7 +56,7 @@ RSpec.describe CidadaosController do
     context 'When cidadao have invalid params' do
       it 'validate create object' do
         expect{
-          post :create, params: { cidadao: cidadao_params }
+          post :create, params: { cidadao: { nome_completo: 'Julia Fachin', data_nascimento: Date.tomorrow} }
         }.to_not change(Cidadao, :count)
       end
     end
@@ -88,9 +88,9 @@ RSpec.describe CidadaosController do
       it 'validate update object' do
         put :update, params: { id: cidadao.id, cidadao: cidadao_params }
 
-        expect(cidadao.reload.nome_completo).to eq 'Julia Fachin'
+        expect(assigns(:cidadao).reload.nome_completo).to eq 'Julia Fachin'
         expect(response).to have_http_status(302)
-        expect(response).to redirect_to cidadaos_path
+        expect(response).to redirect_to (cidadao_path(assigns[:cidadao]))
         expect(flash[:notice]).to eq 'Atualizado com sucesso!'
       end
     end
