@@ -2,11 +2,11 @@ class CidadaosController < ApplicationController
 	  before_action :set_cidadao, only: [:show, :edit, :update]
 
   def index
-    @cidadaos = Cidadao.order('nome_completo').all
+    @cidadaos = CidadaoDecorator.decorate_collection(Cidadao.order('nome_completo').all)
   end
 
   def show
-    @endereco = @cidadao.endereco
+    @endereço = CidadaoDecorator.decorate_collection(@cidadao.endereco)
   end
 
   def new

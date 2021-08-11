@@ -36,10 +36,10 @@
             <tr onclick="location.href='<%= cidadao_path(cidadao) %>'">
               <th scope="row"></th>
                 <td><%= cidadao.nome_completo %></td>
-                <td><%= (CPF.new(cidadao.cpf).formatted) %></td>
-                <td><%= (cidadao.cns) %></td>
+                <td><%= cidadao.pretty_cpf %></td>
+                <td><%= cidadao.pretty_cns %></td>
                 <td><%= l(cidadao.data_nascimento, format: :default) %></td>
-                <td><%= cidadao.status? ? 'Ativo' : 'Inativo' %></th>
+                <td><%= cidadao.decorate.which_status %></th>
                 <td></td>
             </tr>
           <% end %>

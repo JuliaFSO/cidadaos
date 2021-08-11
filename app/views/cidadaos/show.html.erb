@@ -31,16 +31,16 @@
           <h4><%= t('form.title.personal') %></h4>
           <div class="row row-cols-3">
             <div class="col"><h5><%= t('show.nome_completo') %></h5><p><%= @cidadao.nome_completo %></p></div>
-            <div class="col"><h5><%= t('show.cpf') %></h5><p><%= (CPF.new(@cidadao.cpf).formatted) %></p></div>
-            <div class="col"><h5><%= t('show.cns') %></h5><p><%= @cidadao.cns %></p></div>
+            <div class="col"><h5><%= t('show.cpf') %></h5><p><%= @cidadao.decorate.pretty_cpf %></p></div>
+            <div class="col"><h5><%= t('show.cns') %></h5><p><%= @cidadao.decorate.pretty_cns %></p></div>
           </div>
           <div class="row row-cols-3">
             <div class="col"><h5><%= t('show.data_nascimento') %></h5><p><%= l(@cidadao.data_nascimento, format: :default) %></p></div>
-            <div class="col"><h5><%= t('show.telefone') %></h5><p><%= Phonelib.parse(@cidadao.telefone) %></p></div>
+            <div class="col"><h5><%= t('show.telefone') %></h5><p><%= @cidadao.decorate.pretty_telefone %></p></div>
             <div class="col"><h5><%= t('show.email') %></h5><p><%= @cidadao.email %></p></div>
           </div>
           <div class="row row-cols-3">
-            <div class="col"><h5><%= t('show.status') %></h5><p><%= @cidadao.status? ? 'Ativo' : 'Inativo' %></p></div>
+            <div class="col"><h5><%= t('show.status') %></h5><p><%= @cidadao.decorate.which_status %></p></div>
             <div class="col"></div>
             <div class="col"></div>
           </div>
@@ -54,7 +54,7 @@
           <div class="row">
             <div class="col-sm"><h5><%= t('show.cidade') %></h5><p><%= @cidadao.endereco.cidade %></p></div>
             <div class="col-sm"><h5><%= t('show.uf') %></h5><p><%= @cidadao.endereco.uf %></p></div>
-            <div class="col-sm"><h5><%= t('show.cep') %></h5><p><%= @cidadao.endereco.cep %></p></div>
+            <div class="col-sm"><h5><%= t('show.cep') %></h5><p><%= @cidadao.decorate.pretty_cep %></p></div>
           </div>
         </div>
       </div>
