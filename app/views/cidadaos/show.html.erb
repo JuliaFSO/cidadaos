@@ -21,11 +21,7 @@
     <div class="card-body">
       <div class="row">
         <div class="col-sm-3 text-center">
-          <% if @cidadao.foto.present? %>
-            <%= cl_image_tag @cidadao.foto.key, style:'height: 150px; width: 150px; border-radius: 50%;' %>
-          <% else %>
-            <%= image_tag "avatar.png", style:'height: 150px; width: 150px; border-radius: 50%;' %>
-          <% end %>
+          <%= @cidadao.decorate.foto %>
         </div>
         <div class="col-sm-9">
           <h4><%= t('form.title.personal') %></h4>

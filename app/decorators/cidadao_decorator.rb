@@ -21,11 +21,11 @@ class CidadaoDecorator < Draper::Decorator
     object.status? ? 'Ativo' : 'Inativo'
   end
 
-  # def foto
-  #   if object.foto.present?
-  #     object.foto.key(style:'height: 150px; width: 150px; border-radius: 50%;')
-  #   else
-  #     object.foto.attach(io: File.open(File.join(Rails.root,'app/assets/images/avatar.png')), filename: 'avatar.png')
-  #   end
-  # end
+  def foto
+    if object.foto.present?
+      h.image_tag(object.foto, style:'height: 150px; width: 150px; border-radius: 50%;')
+    else
+      h.image_tag(object.foto.attach(io: File.open('app/assets/images/avatar.png'), filename: 'avatar.png', content_type: "image/png", style:'height: 150px; width: 150px; border-radius: 50%;'))
+    end
+  end
 end

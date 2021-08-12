@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
   $('.cep').on('blur', function () {
     let cep = this.value;
     let url = `https://viacep.com.br/ws/${$('.cep').val()}/json/`;
