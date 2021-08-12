@@ -1,0 +1,42 @@
+pt-BR:
+  activerecord:
+    errors:
+      models:
+        cidadao:
+          attributes:
+            nome_completo:
+              blank: 'Não pode ficar em branco'
+              invalid: 'Nome incompleto'
+            email:
+              blank: 'Não pode ficar em branco'
+              invalid: 'Formato de email inválido!'
+            cpf:
+              blank: 'Não pode ficar em branco'
+              invalid: 'CPF precisa ser válido'
+              wrong_length: 'Não possui o tamanho esperado'
+            cns:
+              blank: 'Não pode ficar em branco'
+              invalid: 'CNS precisa ser válido'
+              wrong_length: 'Muito pequeno'
+            telefone:
+              wrong_length: 'Muito pequeno'
+              blank: 'Não pode ficar em branco'
+            data_nascimento:
+              blank: 'Não pode ficar em branco'
+              out_of_range: 'A data precisa ser válida'
+            foto:
+              blank: 'Não pode ficar em branco'
+        endereco:
+          attributes:
+            cep:
+              blank: 'Não pode ficar em branco'
+            telefone:
+              blank: 'Não pode ficar em branco'
+            logradouro:
+              blank: 'Não pode ficar em branco'
+            bairro:
+              blank: 'Não pode ficar em branco'
+            cidade:
+              blank: 'Não pode ficar em branco'
+            uf:
+              blank: 'Não pode ficar em branco'

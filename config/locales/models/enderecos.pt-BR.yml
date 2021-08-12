@@ -6,7 +6,7 @@ pt-BR:
         other: enderecos
     attributes:
       endereco:
-        cep: 
+        cep: CEP
         logradouro: Logradouro
         complemento: Complemento
         uf: UF

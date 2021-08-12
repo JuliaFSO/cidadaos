@@ -2,11 +2,11 @@ class CidadaosController < ApplicationController
 	  before_action :set_cidadao, only: [:show, :edit, :update]
 
   def index
-    @cidadaos = Cidadao.order('nome_completo').all
+    @cidadaos = CidadaoDecorator.decorate_collection(Cidadao.order('nome_completo').all)
   end
 
   def show
-    @endereco = @cidadao.endereco
+    @endereço = CidadaoDecorator.decorate_collection(@cidadao.endereco)
   end
 
   def new
@@ -16,11 +16,12 @@ class CidadaosController < ApplicationController
 
   def create
     @cidadao = Cidadao.new(cidadao_params)
-   
-    if @cidadao.save
-      redirect_to cidadao_path(@cidadao)
-    else
-      render :new
+     respond_to do |format|
+      if @cidadao.save
+        format.html { redirect_to cidadao_path(@cidadao), notice: t('messages.created') }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -28,10 +29,12 @@ class CidadaosController < ApplicationController
   end
 
   def update
-    if @cidadao.update(cidadao_params)
-      redirect_to cidadao_path(@cidadao)
-    else
-      render :edit
+    respond_to do |format|
+      if @cidadao.update(cidadao_params)
+        format.html { redirect_to cidadao_path(@cidadao), notice: t('messages.updated') }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -42,7 +45,7 @@ class CidadaosController < ApplicationController
   end
 
   def cidadao_params
-    params.require(:cidadao).permit(:id, :nome_completo, :cpf, :cns,:email, :data_nascimento, :telefone, :foto, :status, endereco_attributes: [:id, :cep, :logradouro, :complemento, :bairro, :cidade, :uf])
+    params.require(:cidadao).permit(:nome_completo, :cpf, :cns,:email, :data_nascimento, :telefone, :foto, :status, endereco_attributes: [:id, :cep, :logradouro, :complemento, :bairro, :cidade, :uf])
   end
 
 end
