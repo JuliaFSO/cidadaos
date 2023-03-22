@@ -27,22 +27,25 @@ gem 'redis', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'faker'
-gem 'devise'
+gem 'faker', '~> 2.18.0'
+gem 'devise', '~> 4.8.0'
 gem 'cloudinary', '~> 1.16.0'
-gem 'rails-i18n'
-gem "cpf_cnpj"
-gem 'phonelib'
+gem 'rails-i18n', '~> 6.0.0'
+gem 'cpf_cnpj', '~> 0.5.0'
+gem 'phonelib', '~> 0.6.51'
+gem 'draper', '~> 4.0.2'
 
 gem 'autoprefixer-rails', '10.2.5'
-gem 'font-awesome-sass'
-gem 'simple_form'
+gem 'font-awesome-sass', '~> 5.15.1'
+gem 'simple_form', '~> 5.1.0'
 group :development, :test do  gem 'pry-byebug'
-  gem 'pry-rails'
-  gem 'dotenv-rails'
-
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails', '~> 0.3.9'
+  gem 'dotenv-rails', '~> 2.7.6'
+  gem 'rspec-rails', '~> 5.0.1'
+  gem 'factory_bot_rails', '~> 6.2.0'
+  gem 'ffaker', '~> 2.18.0'
+  gem 'shoulda-matchers', '~> 5.0.0'
+  gem 'rails-controller-testing', '~> 0.0.3'
 end
 
 group :development do

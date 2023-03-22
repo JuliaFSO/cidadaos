@@ -1,16 +1,15 @@
 pt-BR:
   activerecord:
-  models:
-    cidadao: 
-      one: cidadao
-      other: cidadaos
-  attributes:
-    cidadao:
-      show:
+    models:
+      cidadao: 
+        one: cidadao
+        other: cidadaos
+    attributes:
+      cidadao:
         nome_completo: Nome completo
         data_nascimento: Data de Nascimento
         cpf: CPF
         cns: CNS
-        email: Email
+        email: E-mail
         telefone: Telefone
-
+        status: Status

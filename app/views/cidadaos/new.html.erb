@@ -1,10 +1,27 @@
 <div class="container">
   <div class="d-flex justify-content-around align-items-center mb-3">
     <div class="p-2"><%=image_tag "logo.png", style:'height:150px; width:auto;' %></div>
-    <div class="p-2"><h1 class="text-center mt-2">MUNÍCIPES</h1></div>
-    <div class="p-2"><a class="btn btn-home" href="/cidadaos/" role="button">Listar Munícipes</a></div>
+    <div class="p-2"><h1 class="text-center mt-2"><%= t('new.title') %></h1></div>
+    <div class="p-2"></div>
   </div>
-  <div class="justify-content-center p-5 w-80">
-    <%= render 'form', url_path: cidadaos_path %>
+  <div class="card mb-3">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="/cidadaos/"><%= t('new.title') %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="true" href="/cidadaos/new"><%= t('index.add_new') %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cidadaos/"><%= t('index.search') %></a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div class="justify-content-center px-5 w-80">
+        <%= render 'form', url_path: cidadaos_path %>
+      </div>
+    </div>
   </div>
 </div>
